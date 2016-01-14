@@ -21,7 +21,7 @@ public abstract class Tweet {
     public Tweet(String message){
         this.message = message;
         this.date = new Date(System.currentTimeMillis());
-        this.moods = new ArrayList();
+        this.moods = new ArrayList<Mood>();
     }
 
     public Date getDate() {
