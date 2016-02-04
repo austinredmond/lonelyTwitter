@@ -14,6 +14,7 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,16 +25,102 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ *The main activity for a small Twitter app to capture <br>notes and comments.
+ * <p>It saves the input tweets in the form of json files</p><br>
+ * A sample code is as:<br>
+ *     <code>
+ *         for (int i = 0; i < 10; i++) {
+ *             for (j = 0; j < i; j++) {
+ *                 doSomething();
+ *             }
+ *         }
+ *     </code> <br>
+ *The list of important activities in this clas are as follows: <br>
+ *     <ul>
+ *	       <li>item  1</li>
+ *	       <li>item  2</li>
+ *	       <li>item  3</li>
+ *	       <li>item  4</li>
+ *	   </ul>
+ *	   @see NormalTweet
+ *	   @see java.awt
+ *	   @author aredmond
+ *	   @version 2.1
+ */
 public class LonelyTwitterActivity extends Activity {
+	/**
+	 * @see Tweet
+	 */
 
+	static int MAXIMUM_TWEET_SIZE = 100;
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 
 	private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
-	
-	/** Called when the activity is first created. */
+
+	private int calculateTweetSize() {
+		//
+		return -1;
+	}
+
+	public String removeStopWords() {
+		//Do something
+		return "";
+	}
+
+	/**
+	 *
+	 * @param text1 The text for the directory name
+	 * @param text2 The file name.
+	 * @param text3 The extension
+	 * @param text4
+	 * @return concatenation of ...
+	 * @exception IllegalAccessError
+	 * This happens if ...
+	 * @exception
+	 */
+	public String doSomething(String text1, String text2, String text3, String text4) {
+		//Do Something
+		return "";
+	}
+
+	private void startSecondActivity(Intent intent){
+		//Run the second activity
+	}
+
+	protected boolean evaluateOtherActivity(Intent intent) {
+		//do something
+		String expression1 = "",
+				expression2 = "",
+				expression3 = "",
+				expression4 = "";
+		int count = 0;
+		String expression = doSomething(expression1, expression2,
+				doSomething(expression3, expression4, expression3,
+						expression4), expression1);
+		for (int i = 0; i < count; i++) {
+			try {
+				int a = 1;
+				int b = 2;
+				int count2 = 0;
+				if (a < b) {
+					doSomething("", "", "", "");
+				}
+				else if (true) {
+					doSomething("a", "", "", "" );
+				}
+			}
+			catch(Exception e) {}
+		}
+		return true;
+	}
+
+	/**
+	 * Called when the activity is first created.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,6 +156,9 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * Called when the activity is started.
+	 */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -79,6 +169,9 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * Is used to retrieve an array list containing tweet objects from a file using gson.
+	 */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -98,7 +191,10 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
-	
+
+	/**
+	 * Is used to save an array list of tweet objects to a file using gson.
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
