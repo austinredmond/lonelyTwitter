@@ -1,32 +1,29 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.Date;
+
 /**
- * Created by aredmond on 1/14/16.
- * A child of the abstract class Tweet. Is tweetable.
+ * Created by romansky on 1/12/16.
  */
 public class ImportantTweet extends Tweet implements Tweetable {
-    /**
-     * A constructor for important tweet.
-     * @param message This is the content of the tweet.
-     */
+    @Override
+    public Boolean isImportant() {
+        return Boolean.TRUE;
+    }
+
+    public ImportantTweet(Date date, String message) {
+        super(date, message);
+    }
+
     public ImportantTweet(String message) {
         super(message);
     }
 
-    /**
-     * Checks if the tweet is important.
-     * @return True because an important tweet is important.
-     */
-    @Override
-    public boolean isImportant() {
-        return true;
+    public Date getDate() {
+        return this.date;
     }
 
-    /**
-     * Modifies the message to signify the importance of the tweet and returns it.
-     * @return
-     */
-    public String getMessage(){
-        return "Important!! " + this.message;
+    public String getMessage() {
+        return "!IMPORTANT! " + this.message;
     }
 }
