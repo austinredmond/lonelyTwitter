@@ -6,6 +6,8 @@ import java.util.Date;
  * Created by romansky on 1/12/16.
  */
 public abstract class Tweet {
+
+    protected String id;
     protected Date date;
     protected String message;
 
@@ -51,5 +53,13 @@ public abstract class Tweet {
             }
         }
         return date.toString() + " | " + message;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
