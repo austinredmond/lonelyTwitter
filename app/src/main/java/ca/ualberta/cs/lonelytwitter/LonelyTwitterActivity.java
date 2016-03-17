@@ -69,12 +69,7 @@ public class LonelyTwitterActivity extends Activity {
                 latestTweet.addThumbnail(thumbnail);
                 adapter.notifyDataSetChanged();
 
-<<<<<<< HEAD
-                // TODO: Replace with Elasticsearch
-                //ElasticsearchTweetController.addTweet(latestTweet);
-                ElasticsearchTweetController.AddTweetTask addTweetTask = new ElasticsearchTweetController.AddTweetTask();
-                //saveInFile();
-=======
+
                 // Add the tweet to Elasticsearch
                 ElasticsearchTweetController.AddTweetTask addTweetTask = new ElasticsearchTweetController.AddTweetTask();
                 addTweetTask.execute(latestTweet);
@@ -85,7 +80,6 @@ public class LonelyTwitterActivity extends Activity {
                 bodyText.setText("");
                 pictureButton.setImageResource(android.R.color.transparent);
                 thumbnail = null;
->>>>>>> d158a97947f32f8cde91d81628e44aeb1fc721d5
 
                 setResult(RESULT_OK);
             }
@@ -96,23 +90,7 @@ public class LonelyTwitterActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-<<<<<<< HEAD
-        // Get latest tweets
-        // TODO: Replace with Elasticsearch
-        ElasticsearchTweetController.GetTweetsTask getTweetsTask = new ElasticsearchTweetController.GetTweetsTask();
-        getTweetsTask.execute("Happy");
-        try {
-            tweets = new ArrayList<Tweet>();
-            tweets.addAll(getTweetsTask.get());
-        }
-        catch(InterruptedException e){
-            e.printStackTrace();
-        }
-        catch (ExecutionException e){
-            e.printStackTrace();
-        }
-        //loadFromFile();
-=======
+
         // Get the latest tweets from Elasticsearch
         ElasticsearchTweetController.GetTweetsTask getTweetsTask = new ElasticsearchTweetController.GetTweetsTask();
 //        getTweetsTask.execute("test");
@@ -125,7 +103,7 @@ public class LonelyTwitterActivity extends Activity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
->>>>>>> d158a97947f32f8cde91d81628e44aeb1fc721d5
+
 
 //        adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweets);
         // Binds tweet list with view, so when our array updates, the view updates with it

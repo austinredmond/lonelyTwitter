@@ -51,13 +51,21 @@ public class ElasticsearchTweetController {
             // The following orders the results by date
             //String search_string = "{\"sort\": { \"date\": { \"order\": \"desc\" }}}";
 
+            //"sort" : [
+            //{ "post_date" : {"order" : "asc"}},
+            //"user",
+            //        { "name" : "desc" },
+            //{ "age" : "desc" },
+            //"_score"
+            //],
+
             /* NEW! */
             String search_string;
             if(params[0] == "") {
-                search_string = "{\"from\":0,\"size\":10000}";
+                search_string = "{\"from\":0,\"size\":10000, \"sort\": { \"date\": { \"order\": \"desc\" }}}";
             } else {
                 // The following gets the top 10000 tweets matching the string passed in
-                search_string = "{\"from\":0,\"size\":10000,\"query\":{\"match\":{\"message\":\"" + params[0] + "\"}}}";
+                search_string = "{\"from\":0,\"size\":10000, \"sort\": { \"date\": { \"order\": \"desc\" }}, \"query\":{\"match\":{\"message\":\"" + params[0] + "\"}}}";
             }
 
 
